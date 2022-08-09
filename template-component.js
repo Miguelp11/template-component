@@ -8,6 +8,13 @@ export class TemplateComponent extends LitElement {
         border: solid 1px gray;
         padding: 16px;
         max-width: 800px;
+        --var-color: red;
+      }
+      h1 {
+        color: magenta;
+      }
+      .color-button {
+        color: (--var-color);
       }
     `;
   }
@@ -16,6 +23,7 @@ export class TemplateComponent extends LitElement {
     return {
       name: {type: String},
       count: {type: Number},
+      incremento: { type: Number },
     };
   }
 
@@ -23,20 +31,21 @@ export class TemplateComponent extends LitElement {
     super();
     this.name = 'World';
     this.count = 0;
+    this.incremento = 1;
   }
 
   render() {
     return html`
-      <h1>Hello, ${this.name}!</h1>
-      <button @click=${this._onClick} part="button">
-        Click Count: ${this.count}
+      <h1>Valor de apuesta, $${this.count}</h1>
+      <button @click=${this._onClick} part="button" class="color-button">
+       Subir Apuesta
       </button>
       <slot></slot>
     `;
   }
 
   _onClick() {
-    this.count++;
+    this.count += this.incremento;
   }
 }
 

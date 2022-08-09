@@ -5,9 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Template Component</title>
+  <style>
+    .flex {
+      display: flex;
+      justify-content: center;     
+    }
+    template-component {
+      --var-color: brown;
+      margin: 10px;;
+    }
+    h1 {
+      color: red;
+    }
+    .color {
+      color: aqua;
+    }
+    #color1 {
+      color: blue;
+    }
+  </style>
 </head>
 <body>
-  <template-component></template-component>
+  <h1 class="color" id="color1">titulo</h1>
+  <div class="flex">
+    <template-component name="tobi" count="0.50" incremento="1"></template-component>
+    <template-component incremento=".5"></template-component>
+    <template-component incremento="10"></template-component>
+    <template-component incremento="100"></template-component>
+  </div>
   <script type="module" src="template-component.js"></script>
 </body>
 </html>
